@@ -4,6 +4,8 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./scenes/Layout";
+import Dashboard from "./scenes/dashboard";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -15,7 +17,9 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>
+              {/* direct to dashboard when user login  */}
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Route>
           </Routes>
         </ThemeProvider>
