@@ -52,6 +52,32 @@ const Product = ({
         <Rating value={rating} readOnly />
         <Typography variant="body2">{description}</Typography>
       </CardContent>
+      <CardActions>
+        <Button
+          variant="primary"
+          size="small"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          See More
+        </Button>
+      </CardActions>
+      <Collapse
+        in={isExpanded}
+        timeout="auto"
+        unmountOnExit
+        sx={{
+          color: theme.palette.neutral[300],
+        }}
+      >
+        <CardContent>
+          <Typography>id: {_id}</Typography>
+          <Typography>Supply Left: {supply}</Typography>
+          <Typography>Yearly Sales: {stat.yearlySalesTotal}</Typography>
+          <Typography>
+            Yeraly Units Sold: {stat.yearlyTotalSoldUnits}
+          </Typography>
+        </CardContent>
+      </Collapse>
     </Card>
   );
 };
@@ -75,7 +101,32 @@ const Products = () => {
           sx={{
             "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
           }}
-        ></Box>
+        >
+          {data.map(
+            ({
+              _id,
+              name,
+              description,
+              price,
+              rating,
+              category,
+              supply,
+              stat,
+            }) => (
+              <Product
+                key={_id}
+                _id={_id}
+                name={name}
+                description={description}
+                price={price}
+                rating={rating}
+                category={category}
+                supply={supply}
+                stat={stat}
+              />
+            )
+          )}
+        </Box>
       ) : (
         <>Loading...</>
       )}
