@@ -40,7 +40,7 @@ export const getTransactions = async (req, res) => {
 
     // formatted sort: {userId: -1}
     const generateSort = () => {
-      const sortParsed = JSON.pars(sort);
+      const sortParsed = JSON.parse(sort);
       const sortFormatted = {
         [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
       };
