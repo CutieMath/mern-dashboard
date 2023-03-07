@@ -20,7 +20,6 @@ const Transactions = () => {
     sort: JSON.stringify(sort),
     search,
   });
-  console.log("data", data);
 
   const columns = [
     {
@@ -41,7 +40,7 @@ const Transactions = () => {
     {
       field: "products",
       headerName: "# of Products",
-      flex: 0.4,
+      flex: 0.5,
       sortable: false,
       renderCell: (params) => params.value.length,
     },
