@@ -22,36 +22,35 @@ const Geography = () => {
           <ResponsiveChoropleth
             data={data}
             features={geoData.features}
-            margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-            colors="nivo"
+            margin={{ top: 0, right: 0, bottom: 0, left: -50 }}
             domain={[0, 1000000]}
             unknownColor="#666666"
             label="properties.name"
             valueFormat=".2s"
-            projectionTranslation={[0.5, 0.5]}
+            projectionScale={150}
+            projectionTranslation={[0.45, 0.6]}
             projectionRotation={[0, 0, 0]}
-            graticuleLineColor="#dddddd"
-            borderWidth={0.5}
-            borderColor="#152538"
+            borderWidth={1.3}
+            borderColor="#ffffff"
             legends={[
               {
-                anchor: "bottom-left",
+                anchor: "bottom-right",
                 direction: "column",
                 justify: true,
-                translateX: 20,
-                translateY: -100,
+                translateX: 0,
+                translateY: -125,
                 itemsSpacing: 0,
                 itemWidth: 94,
                 itemHeight: 18,
                 itemDirection: "left-to-right",
-                itemTextColor: "#444444",
+                itemTextColor: theme.palette.secondary[200],
                 itemOpacity: 0.85,
                 symbolSize: 18,
                 effects: [
                   {
                     on: "hover",
                     style: {
-                      itemTextColor: "#000000",
+                      itemTextColor: theme.palette.background.alt,
                       itemOpacity: 1,
                     },
                   },
