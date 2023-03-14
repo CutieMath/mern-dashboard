@@ -7,8 +7,8 @@ import { ResponsiveLine } from "@nivo/line";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Daily = () => {
-  const [startDate, setStartDate] = useState(new Date("2023-03-10"));
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date("2021-02-01"));
+  const [endDate, setEndDate] = useState(new Date("2021-03-01"));
   const { data } = useGetSalesQuery();
   const theme = useTheme();
 
@@ -48,7 +48,7 @@ const Daily = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="DAILY SALES" subtitle="Daily sales stats" />
+      <Header title="DAILY SALES" subtitle="Chart of daily sales" />
       <Box height="75vh">
         <Box display="flex" justifyContent="flex-end">
           <Box>
