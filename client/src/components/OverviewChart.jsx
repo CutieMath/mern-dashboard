@@ -13,7 +13,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     if (!data) return [];
 
     const { monthlyData } = data;
-    // format the data for the line chart
     const totalSalesLine = {
       id: "totalSales",
       color: theme.palette.secondary.main,
@@ -43,6 +42,8 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       },
       { sales: 0, units: 0 }
     );
+
+    return [[totalSalesLine], [totalUnitsLine]];
   }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!data || isLoading) return "Loading...";
