@@ -53,10 +53,10 @@ mongoose
     app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 
     // Only add data to the database if it's empty
-    OverallStat.insertMany(dataOverallStat);
+    // OverallStat.insertMany(dataOverallStat);
     // User.insertMany(dataUser);
     // Product.insertMany(dataProduct);
-    ProductStat.insertMany(dataProductStat);
+    // ProductStat.insertMany(dataProductStat);
     // Transaction.insertMany(dataTransaction);
   })
   .catch((error) => console.log(`${error} didn't connect. `));
