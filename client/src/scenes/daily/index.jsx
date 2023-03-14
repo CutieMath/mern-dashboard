@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import Header from "../../components/Header";
-import OverviewChart from "../../components/OverviewChart";
 import { useGetSalesQuery } from "../../state/api";
-import ReactDatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
+import { ResponsiveLine } from "@nivo/line";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Daily = () => {
@@ -51,21 +51,25 @@ const Daily = () => {
       <Header title="DAILY SALES" subtitle="Daily sales stats" />
       <Box height="75vh">
         <Box display="flex" justifyContent="flex-end">
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            selectsStart
-            startDate={startDate}
-            endDate={endDate}
-          />
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            selectsEnd
-            startDate={startDate}
-            endDate={endDate}
-            minDate={startDate}
-          />
+          <Box>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+            />
+          </Box>
+          <Box>
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
+            />
+          </Box>
         </Box>
         {data ? (
           <ResponsiveLine
@@ -118,15 +122,11 @@ const Daily = () => {
             axisTop={null}
             axisRight={null}
             axisBottom={{
-              format: (v) => {
-                if (isDashboard) return v.slice(0, 3);
-                return v;
-              },
               orient: "bottom",
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 90,
-              legend: isDashboard ? "" : "Month",
+              legend: "Month",
               legendOffset: 60,
               legendPosition: "middle",
             }}
