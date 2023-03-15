@@ -6,7 +6,6 @@ import { useGetSalesQuery } from "../state/api";
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
-  console.log("data", data);
 
   // use useMemo to avoid calculation everytime
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
