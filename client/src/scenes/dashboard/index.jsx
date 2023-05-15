@@ -147,6 +147,7 @@ const Dashboard = () => {
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",
+              borderRadius: "5rem",
             },
             "& .MuiDataGrid-cell": {
               borderBottom: "none",
@@ -157,7 +158,7 @@ const Dashboard = () => {
               borderBottom: "none",
             },
             "& .MuiDataGrid-virtualScroller": {
-              backgroundColor: theme.palette.primary.light,
+              backgroundColor: theme.palette.background.alt,
             },
             "& .MuiDataGrid-footerContainer": {
               backgroundColor: theme.palette.background.alt,
