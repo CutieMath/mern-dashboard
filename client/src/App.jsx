@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Layout from "./scenes/Layout";
+import Layout from "./scenes/layout";
 import Dashboard from "./scenes/dashboard";
 import Products from "./scenes/products";
 import Customers from "./scenes/customers";
