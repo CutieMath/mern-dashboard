@@ -15,7 +15,6 @@ const BreakdownChart = ({ isDashboard = false }) => {
     theme.palette.secondary[300],
     theme.palette.secondary[500],
   ];
-
   const formattedData = Object.entries(data.salesByCategory).map(
     ([category, sales], i) => ({
       id: category,
@@ -24,7 +23,6 @@ const BreakdownChart = ({ isDashboard = false }) => {
       color: colors[i],
     })
   );
-  console.log("FORMATTED DATA: ", formattedData);
 
   return (
     <Box
@@ -73,12 +71,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
         margin={
           isDashboard
             ? { top: 40, right: 80, bottom: 100, left: 50 }
-            : {
-                top: 40,
-                right: 80,
-                bottom: 80,
-                left: 80,
-              }
+            : { top: 40, right: 80, bottom: 80, left: 80 }
         }
         sortByValue={true}
         innerRadius={0.45}
@@ -88,7 +81,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
           from: "color",
           modifiers: [["darker", 0.2]],
         }}
-        enableArcLabels={!isDashboard}
+        enableArcLinkLabels={!isDashboard}
         arcLinkLabelsTextColor={theme.palette.secondary[200]}
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color" }}
@@ -137,7 +130,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
         }}
       >
         <Typography variant="h6">
-          {!isDashboard && "Total: "} ${data.yearlySalesTotal}
+          {!isDashboard && "Total:"} ${data.yearlySalesTotal}
         </Typography>
       </Box>
     </Box>
